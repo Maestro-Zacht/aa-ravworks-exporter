@@ -1,8 +1,10 @@
 import json
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.http import FileResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.files.base import ContentFile
 
 from allianceauth.services.hooks import get_extension_logger
 
@@ -45,7 +47,8 @@ def index(request):
             #     pass
 
             if not error:
-                pass
+                updated_config = ContentFile(json.dumps(config, indent=4).encode())
+                return FileResponse(updated_config, as_attachment=True, filename='config.json')
 
     else:
         form = ExportForm(request.user)

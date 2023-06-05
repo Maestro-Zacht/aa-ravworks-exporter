@@ -11,7 +11,12 @@ def import_skills(character: EveCharacter):
         skill_id__in=SKILL_SET,
     )
 
-    return {f"skill_{skill.skill_id}": skill.active_skill_level if skill.active_skill_level != 0 else 1 for skill in skills}
+    res = {f"skill_{skill.skill_id}": skill.active_skill_level if skill.active_skill_level != 0 else 1 for skill in skills}
+
+    missing_skills = SKILL_SET.difference(skills.values_list('skill_id', flat=True))
+    res.update({f"skill_{skill_id}": 1 for skill_id in missing_skills})
+
+    return res
 
 
 def is_character_added(character: EveCharacter):
