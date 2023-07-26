@@ -43,8 +43,10 @@ def index(request):
                 else:
                     config.update(import_skills(ownership.character))
 
-            # if form.cleaned_data['structures']:
-            #     pass
+            if form.cleaned_data['structures']:
+                from .exporters.structures.structures import export_structures
+
+                config['hidden_my_structures'] = export_structures(ownership)
 
             if not error:
                 updated_config = ContentFile(json.dumps(config, indent=4).encode())

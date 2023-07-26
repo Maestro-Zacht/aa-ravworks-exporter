@@ -9,15 +9,15 @@ class ExportForm(forms.Form):
         (None, 'Do not export'),
     ])
     character = forms.ChoiceField(required=True, label='Character')
-    # structures = forms.BooleanField(initial=True, required=False, label='Structures')
+    structures = forms.BooleanField(initial=True, required=False, label='Structures')
 
     def __init__(self, user, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # if 'structures' not in settings.INSTALLED_APPS:
-        #     self.fields['structures'].disabled = True
-        #     self.fields['structures'].initial = False
-        #     self.fields['structures'].label = 'Structures (not available)'
+        if 'structures' not in settings.INSTALLED_APPS:
+            self.fields['structures'].disabled = True
+            self.fields['structures'].initial = False
+            self.fields['structures'].label = 'Structures (not available)'
 
         if 'memberaudit' in settings.INSTALLED_APPS and user.has_perm('memberaudit.basic_access'):
             self.fields['skills'].choices = [*self.fields['skills'].choices, ('memberaudit', 'MemberAudit')]
