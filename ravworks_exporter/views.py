@@ -46,7 +46,7 @@ def index(request):
             if form.cleaned_data['structures']:
                 from .exporters.structures.structures import export_structures
 
-                config['hidden_my_structures'] = export_structures(ownership)
+                config['hidden_my_structures'] = export_structures(ownership.user)
 
             if not error:
                 updated_config = ContentFile(json.dumps(config, indent=4).encode())
