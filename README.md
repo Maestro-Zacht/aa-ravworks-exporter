@@ -15,7 +15,7 @@ Skills:
 
 Structures:
 
-- Work in progress
+- [aa-structures](https://apps.allianceauth.org/apps/detail/aa-structures)
 
 If there are multiple plugins for the same functionality, only 1 is needed. If no plugin is installed, that functionality will be unavailable.
 
