@@ -1,18 +1,15 @@
-{% extends 'allianceauth/base.html' %}
-{% load bootstrap %}
+{% extends 'allianceauth/base-bs5.html' %}
+{% load django_bootstrap5 %}
 
 {% block page_title %}Ravworks Exporter{% endblock page_title %}
 
 {% block content %}
     <div class="col-lg-12">
         <h1 class="page-header text-center">Ravworks Exporter</h1>
-        <div class="panel panel-primary text-center">
-            <div class="panel-heading">
-                <h3 class="panel-title text-center">Form</h3>
-            </div>
-            <div class="panel-body">
+        <div class="card">
+            <div class="card-body">
                 <form enctype="multipart/form-data" method="post"> {% csrf_token %}
-                    {{ form|bootstrap }}
+                    {% bootstrap_form form %}
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
