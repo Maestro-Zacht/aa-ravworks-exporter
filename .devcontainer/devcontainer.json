@@ -24,7 +24,9 @@
 				"GitHub.copilot",
 				"VisualStudioExptTeam.vscodeintellicode",
 				"yzhang.markdown-all-in-one",
-				"DavidAnson.vscode-markdownlint"
+				"DavidAnson.vscode-markdownlint",
+				"donjayamanne.githistory",
+				"eamodio.gitlens"
 			]
 		}
 	}
