@@ -110,7 +110,7 @@ services:
         "worker_%n"
       ]
     deploy:
-      replicas: 3
+      replicas: 1
 
 volumes:
   redis-data:
