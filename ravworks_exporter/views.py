@@ -28,7 +28,7 @@ def index(request):
             if form.cleaned_data['skills']:
                 m = skills_re.match(form.cleaned_data['skills'])
                 app = m.group('app')
-                character = get_object_or_404(EveCharacter, character_id=int(m.group('character_id')))
+                character = get_object_or_404(EveCharacter, character_id=int(m.group('character_id')), character_ownership__user=request.user)
 
                 if app == 'memberaudit':
                     from .exporters.skills.memberaudit import import_skills, is_character_added
