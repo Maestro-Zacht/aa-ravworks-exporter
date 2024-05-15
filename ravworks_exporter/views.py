@@ -48,7 +48,13 @@ def index(request):
                         config.update(import_skills(character))
 
             if form.cleaned_data['structures']:
-                from .exporters.structures.structures import export_structures
+                if 'structures' == form.cleaned_data['structures']:
+                    from .exporters.structures.structures import export_structures
+                elif 'corptools' == form.cleaned_data['structures']:
+                    from .exporters.structures.corptools import export_structures
+                else:
+                    messages.error(request, "Invalid structures app")
+                    error = True
 
                 config['hidden_my_structures'] = export_structures(request.user)
                 config['hidden_allocation_dict'] = {}
