@@ -16,6 +16,7 @@ Skills:
 Structures:
 
 - [aa-structures](https://apps.allianceauth.org/apps/detail/aa-structures)
+- [CorpTools](https://apps.allianceauth.org/apps/detail/allianceauth-corptools)
 
 If there are multiple plugins for the same functionality, only 1 is needed. If no plugin is installed, that functionality will be unavailable.
 
