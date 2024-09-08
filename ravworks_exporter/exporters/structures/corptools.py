@@ -8,6 +8,7 @@ def export_structures(user):
         Structure
         .get_visible(user)
         .filter(type_name__group__category_id=65)
+        .exclude(type_name_id=81826)
         .select_related('system_name')
     )
     res = []
