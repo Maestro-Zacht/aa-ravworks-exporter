@@ -28,6 +28,7 @@ def export_structures(user):
             Structure.objects
             .visible_for_user(user)
             .filter(eve_type__eve_group__eve_category_id=EveCategoryId.STRUCTURE)
+            .exclude(eve_type_id=81826)
             .select_related("eve_solar_system", 'eve_type')
             .prefetch_related('items__eve_type')
         )
