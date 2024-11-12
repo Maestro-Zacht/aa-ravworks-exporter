@@ -6,6 +6,8 @@ from django.http import FileResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.files.base import ContentFile
+from django.utils.text import format_lazy
+from django.utils.translation import gettext_lazy as _
 
 from allianceauth.services.hooks import get_extension_logger
 from allianceauth.eveonline.models import EveCharacter
@@ -32,17 +34,19 @@ def index(request):
 
                 if app == 'memberaudit':
                     from .exporters.skills.memberaudit import import_skills, is_character_added
+                    from memberaudit.app_settings import MEMBERAUDIT_APP_NAME
 
                     if not is_character_added(character):
-                        messages.error(request, f"Character {character.character_name} is not added to MemberAudit")
+                        messages.error(request, format_lazy("Character {character_name} is not added to {app_name}", character_name=character.character_name, app_name=MEMBERAUDIT_APP_NAME))
                         error = True
                     else:
                         config.update(import_skills(character))
                 elif app == 'corptools':
                     from .exporters.skills.corptools import import_skills, is_character_added
+                    from corptools.app_settings import CORPTOOLS_APP_NAME
 
                     if not is_character_added(character):
-                        messages.error(request, f"Character {character.character_name} is not added to CorpTools")
+                        messages.error(request, format_lazy("Character {character_name} is not added to {app_name}", character_name=character.character_name, app_name=CORPTOOLS_APP_NAME))
                         error = True
                     else:
                         config.update(import_skills(character))
@@ -53,7 +57,7 @@ def index(request):
                 elif 'corptools' == form.cleaned_data['structures']:
                     from .exporters.structures.corptools import export_structures
                 else:
-                    messages.error(request, "Invalid structures app")
+                    messages.error(request, _("Invalid structures app"))
                     error = True
 
                 config['hidden_my_structures'] = export_structures(request.user)
