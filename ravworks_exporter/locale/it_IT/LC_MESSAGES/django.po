@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Matteo Ghia, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-12 13:06+0000\n"
+"PO-Revision-Date: 2024-11-12 13:14+0000\n"
+"Last-Translator: Matteo Ghia, 2024\n"
+"Language-Team: Italian (Italy) (https://app.transifex.com/alliance-auth/teams/107430/it_IT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it_IT\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#: ravworks_exporter/auth_hooks.py:11
+#: ravworks_exporter/templates/ravworks_exporter/index.html:5
+#: ravworks_exporter/templates/ravworks_exporter/index.html:9
+msgid "Ravworks Exporter"
+msgstr "Esportatore Ravworks"
+
+#: ravworks_exporter/forms.py:9
+msgid "Config file"
+msgstr "File di configurazione"
+
+#: ravworks_exporter/forms.py:10
+msgid "Skills"
+msgstr "Abilità"
+
+#: ravworks_exporter/forms.py:11 ravworks_exporter/forms.py:14
+msgid "Do not export"
+msgstr "Non esportare"
+
+#: ravworks_exporter/forms.py:13
+msgid "Structures"
+msgstr "Strutture"
+
+#: ravworks_exporter/templates/ravworks_exporter/index.html:14
+msgid "Submit"
+msgstr "Invia"
+
+#: ravworks_exporter/views.py:60
+msgid "Invalid structures app"
+msgstr "App delle strutture invalida"
