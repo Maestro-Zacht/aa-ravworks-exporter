@@ -51,7 +51,7 @@ WSGI_APPLICATION = "myauth.wsgi.application"
 
 # remove static root so files are served without collectstatic
 # STATIC_ROOT = "/var/www/myauth/static/"
-del STATIC_ROOT
+# del STATIC_ROOT
 
 BROKER_URL = f"redis://{os.environ.get('AA_REDIS', 'redis:6379')}/0"
 CACHES = {
@@ -88,13 +88,18 @@ INSTALLED_APPS += [
     'ravworks_exporter',
 
     'eveuniverse',
+    "eve_sde",
     'corptools',
-    'memberaudit',
+    # 'memberaudit',
     'structures',
 
     "debug_toolbar",
-    'taskmonitor',
+    # 'taskmonitor',
 ]
+
+INSTALLED_APPS = [
+    "modeltranslation",
+] + INSTALLED_APPS
 
 #######################################
 # Add any custom settings below here. #
@@ -121,3 +126,10 @@ CELERYBEAT_SCHEDULE['structures_fetch_all_notifications'] = {
     'task': 'structures.tasks.fetch_all_notifications',
     'schedule': crontab(minute='*/5'),
 }
+
+if "eve_sde" in INSTALLED_APPS:
+    # Run at 12:00 UTC each day
+    CELERYBEAT_SCHEDULE["EVE SDE :: Check for SDE Updates"] = {
+        "task": "eve_sde.tasks.check_for_sde_updates",
+        "schedule": crontab(minute="0", hour="12"),
+    }

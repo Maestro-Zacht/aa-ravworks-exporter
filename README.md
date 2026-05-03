@@ -10,23 +10,31 @@ Data from ESI are not directly fetched by this application, instead it relies on
 
 Skills:
 
-- [MemberAudit](https://apps.allianceauth.org/apps/detail/aa-memberaudit)
-- [CorpTools](https://apps.allianceauth.org/apps/detail/allianceauth-corptools)
+- [MemberAudit](https://gitlab.com/ErikKalkoken/aa-memberaudit)
+- [CorpTools](https://github.com/Solar-Helix-Independent-Transport/allianceauth-corp-tools)
 
 Structures:
 
-- [aa-structures](https://apps.allianceauth.org/apps/detail/aa-structures)
-- [CorpTools](https://apps.allianceauth.org/apps/detail/allianceauth-corptools)
+- [aa-structures](https://gitlab.com/ErikKalkoken/aa-structures)
+- [CorpTools](https://github.com/Solar-Helix-Independent-Transport/allianceauth-corp-tools)
 
 If there are multiple plugins for the same functionality, only 1 is needed. If no plugin is installed, that functionality will be unavailable.
 
 ## Installation
 
-1. Install the package with pip:
+1. Install the package with pip if you are on baremetal:
 
     ```bash
     pip install aa-ravworks-exporter
     ```
+
+    or add it to your `requirements.txt` if you are using docker:
+
+    ```text
+    aa-ravworks-exporter==x.y.z
+    ```
+
+    where `x.y.z` is the desired version of the package.
 
 2. Add `'ravworks_exporter',` to your `INSTALLED_APPS` in `local.py`
 

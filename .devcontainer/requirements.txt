@@ -4,9 +4,9 @@ tox
 coverage
 factory_boy
 django-debug-toolbar
-aa-taskmonitor
+# aa-taskmonitor
 
-django-eveuniverse
-allianceauth-corptools
-aa-memberaudit
-aa-structures
+django-eveuniverse>=2.0.0a4
+allianceauth-corptools>=3.0.0b13
+# aa-memberaudit
+aa-structures>=4.0.0b3
